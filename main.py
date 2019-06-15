@@ -13,6 +13,7 @@ from modes.store import (
 	get_scale_from_mode
 )
 
+from chords.store import get as get_chord, get_voicing
 
 # a0 = get_note('A', octave=0)
 
@@ -21,12 +22,11 @@ from modes.store import (
 # 	print(n.describe())
 
 ionian = get_mode('ionian')
-c_maj = get_scale_from_mode(ionian, 'C')
-csharp_maj = get_scale_from_mode(ionian, 'C#')
-d_maj = get_scale_from_mode(ionian, 'D')
+g_maj = get_scale_from_mode(ionian, 'G')
+#print(g_maj.describe())
 
-#print(ionian.describe())
+major = get_chord('major')
+c_maj_voicing = get_voicing(major, root='C')
 
-print(c_maj.describe())
-print(csharp_maj.describe())
-print(d_maj.describe())
+#print(major.describe())
+print(c_maj_voicing)
