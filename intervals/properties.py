@@ -37,7 +37,7 @@ __interval_properties = [
 	},
 	# why can't you be normal? -------
 	{
-		'name': 'Tritone',
+		'name': 'tritone',
 		'min-maj': '-',
 		'alt': 'augmented fourth | diminished fifth',
 		'aug-dim': 'A4 | d5'
@@ -81,22 +81,9 @@ __interval_properties = [
 	}
 ]
 
-class Interval:
-	def __init__(self, hf, props):
-		
-		self.name = props.get('name')
-		self.min_maj = props.get('min-maj')
-		self.halfsteps = hf
+def get(key, value):
+	f = lambda i: i.get(key) == value
+	return list(filter(f, __interval_properties))
 
-	def describe(self):
-		return "Interval({}, {}, halfsteps: {})".format(
-			self.name, self.min_maj, self.halfsteps
-		)
-	def __repr__(self):
-		return "Interval({})".format(self.min_maj)
-
-
-intervals = [
-	Interval(hf, props)
-	for hf, props in enumerate(__interval_properties)
-]
+def get_all():
+	return __interval_properties
