@@ -28,23 +28,17 @@ from chords.ops import build_voicing
 
 
 ionian = get_mode('ionian')
-c_maj_scale = get_scale_from_mode(ionian, root='C')
+c_maj_scale = get_scale_from_mode(ionian, root='G')
 print(c_maj_scale.describe())
 
-I = build_voicing(
-	[
-		c_maj_scale.notes[0],
-		c_maj_scale.notes[2],
-		c_maj_scale.notes[4]
-	]
-)
+cmaj_iterator = c_maj_scale.iterate_notes()
 
-II = build_voicing(
-	[
-		c_maj_scale.notes[1],
-		c_maj_scale.notes[3],
-		c_maj_scale.notes[5]
-	]
-) 
+notes = [ next(cmaj_iterator) for _ in range(24) ]
 
-print(II)
+for i in range(7):
+	chord = build_voicing([
+		notes[i],
+		notes[i+2],
+		notes[i+4]
+	])
+	print(chord)

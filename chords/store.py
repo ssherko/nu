@@ -16,6 +16,9 @@ class Chord:
 	def __init__(self, t, kind, props):
 		self.type = t
 		self.kind = kind
+		
+		# at this point, is unkown
+		self.degree = 0
 
 		intervals = props.get('intervals')
 		self.intervals = [

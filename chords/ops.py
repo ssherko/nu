@@ -22,7 +22,7 @@ def build_voicing(notes, sort=False):
 	 n = notes
 
 	 if sort:
-	 	n = sorted(notes, key=lambda e: e.degree)
+	 	n = sorted(notes, key=lambda e: e.rank)
 	 
 	 root = n[0]
 	 
@@ -44,6 +44,9 @@ def build_voicing(notes, sort=False):
 
 	 chord = Chord(t, kind, {'intervals': [i.name for i in intervals]})
 	 return Voicing(chord, root=root.name)
+
+def invert(voicing, inversion=1):
+	pass
 
 def extend(chord, extensions):
 	pass

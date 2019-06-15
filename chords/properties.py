@@ -14,7 +14,16 @@ __chord_properties = {
 			# P1, m3, d5
 		},
 		'augmented': {
-			'intervals': ['perfect unison', 'major third', 'minor sixth']
+			'intervals': ['perfect unison', 'major third', 'minor sixth'],
+			# P1, M3, m6
+		},
+		'sus2': {
+			'intervals': ['perfect unison', 'major second', 'perfect fifth'],
+			# P1, M2, P5
+		},
+		'sus4': {
+			'intervals': ['perfect unison', 'perfect fourth', 'perfect fifth'],
+			# P1, P4, P5
 		}
 	},
 	'four-note': {

@@ -42,6 +42,13 @@ class Scale():
 
 			self.notes.append(accum[-1])
 
+	def iterate_notes(self):
+		distinct = self.notes[:-1] # omit the octave
+		c = 0
+		while True:
+			yield distinct[c % len(distinct)]
+			c += 1
+
 	def describe(self):
 		return (
 			"Scale ({}, notes:{})".format(
