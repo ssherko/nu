@@ -9,34 +9,33 @@ from notes.store import (
 	get as get_note,
 	get_sequence as get_notes_sequence
 )
-from notes.ops import add_interval
+from notes.ops import (
+	add_interval,
+	sharpen,
+	flatten
+)
 
 from modes.store import (
 	get as get_mode,
 	get_scale_from_mode
 )
 
-from chords.store import get as get_chord, get_voicing
+from chords.store import (
+	get as get_chord, 
+	get_voicing
+)
+from chords.ops import build_voicing
 
-a0 = get_note('A', octave=0)
-a1 = get_note('A#', octave=1)
 
-a0_a1_interval = interval_between(a0, a1)
-print(a0_a1_interval)
-print(diminish_interval(a0_a1_interval))
+# c0 = get_note('C', octave=0)
+# e0 = get_note('E', octave=0)
+# g0 = get_note('G', octave=0)
 
-print(add_interval(a0, a0_a1_interval))
 
-# chroma0 = get_notes_sequence('A#', 'C')
-# for n in chroma0:
-# 	print(n.describe())
+# test_maj = build_voicing([c0, e0, g0])
+# print(test_maj)
+# test_min = build_voicing([c0, flatten(e0), g0])
+# print(test_min)
 
-# ionian = get_mode('ionian')
-# g_maj = get_scale_from_mode(ionian, 'G')
-# print(g_maj.describe())
-
-# major = get_chord('major')
-# c_maj_voicing = get_voicing(major, root='C')
-
-# print(major.describe())
-# print(c_maj_voicing)
+a = flatten(get_note('A'))
+print(a.describe())

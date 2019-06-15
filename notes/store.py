@@ -53,17 +53,17 @@ def __note_iterator(properties, octave=0):
 	while True:
 		name, info = properties[c % len(properties)]
 		props = dict(name=name, **info)
-		yield Note(props, o)
-		
+
 		c += 1
-		if c / len(properties) == 0:
+		if c % len(properties) == 0:
 			o += 1
+
+		yield Note(props, octave=o)
 
 def iterate_notes(start='A', octave=0):
 	it = __note_iterator(get_all(), octave=octave)
 	
 	for note in it:
-
 		if note.name != start:
 			continue
 		break

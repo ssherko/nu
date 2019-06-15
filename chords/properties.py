@@ -1,14 +1,17 @@
 __chord_properties = {
 	'triads': {
 		'major': {
-			'intervals': ['P1', 'M3', 'P5'],
+			'intervals': ['perfect unison', 'major third', 'perfect fifth'],
+			# P1, M3, P5
 
 		},
 		'minor': {
-			'intervals': ['P1', 'm3', 'P5'],
+			'intervals': ['perfect unison', 'minor third', 'perfect fifth'],
+			# P1, m3, P5
 		},
 		'diminished': {
-			'intervals': ['P1', 'm3', 'd5']
+			'intervals': ['perfect unison', 'minor third', 'diminished fifth'],
+			# P1, m3, d5
 		}
 	}
 }

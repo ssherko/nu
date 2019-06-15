@@ -7,6 +7,8 @@ def _get_interval(name):
 		get_interval(name, key='min-maj') 
 		or 
 		get_interval(name, key='aug-dim')
+		or 
+		get_interval(name, key='name')
 	)
 
 

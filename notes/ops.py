@@ -8,3 +8,17 @@ def add_interval(n, i):
 		return n
 
 	return accum[-1]
+
+# TODO: flatten and sharpen have issues with octaves
+# irrelevant for now
+def flatten(n):
+	note_iterator = iterate_notes(octave=n.octave)
+	prev = next(note_iterator)
+	for curr in note_iterator:
+		if curr.name == n.name:
+			return prev
+		prev = curr
+
+def sharpen(n):
+	print(n.octave)
+	return next(iterate_notes(start=n.name, octave=n.octave))
