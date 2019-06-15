@@ -16,7 +16,7 @@ __mode_properties = {
 				],
 				# note intervals (from the root)
 				'intervals': ['P1', 'M2', 'M3', 'P4', 'P5', 'M6', 'M7', 'P8']
-			}
+			},
 		},
 
 	}

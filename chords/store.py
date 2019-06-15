@@ -59,8 +59,6 @@ class Voicing:
 
 			self.notes.append(accum[-1])
 
-
-
 	def describe(self):
 		return (
 			"Voicing (chord: {}, root: {}, notes: {})"

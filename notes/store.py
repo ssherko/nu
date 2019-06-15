@@ -59,8 +59,8 @@ def __note_iterator(properties, octave=0):
 		if c / len(properties) == 0:
 			o += 1
 
-def iterate_notes(start='A'):
-	it = __note_iterator(get_all())
+def iterate_notes(start='A', octave=0):
+	it = __note_iterator(get_all(), octave=octave)
 	
 	for note in it:
 
