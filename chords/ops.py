@@ -18,7 +18,7 @@ def __identify_kind(t, intervals):
 
 	return '?'
 
-def build_voicing(notes, sort=True):
+def build_voicing(notes, sort=False):
 	 n = notes
 
 	 if sort:
@@ -27,14 +27,23 @@ def build_voicing(notes, sort=True):
 	 root = n[0]
 	 
 	 intervals = [
-	 	interval_between(root, note) for note in n
+	 	interval_between(root, note, sort=sort) for note in n
 	 ]
-
-	 t = '?'
+	 
+	 t = 'single'
+	 if len(intervals) == 2: 
+	 	t = 'harmonic'
 	 if len(intervals) == 3:
 	 	t = 'triad'
+	 if len(intervals) == 4:
+	 	t = 'four-note'
+	 if len(intervals) > 4:
+	 	t = 'extended'
 
 	 kind = __identify_kind(t, intervals)
 
 	 chord = Chord(t, kind, {'intervals': [i.name for i in intervals]})
 	 return Voicing(chord, root=root.name)
+
+def extend(chord, extensions):
+	pass

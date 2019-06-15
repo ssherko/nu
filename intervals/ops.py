@@ -2,11 +2,16 @@ from intervals.store import get
 
 # TODO: need to look a bit closer into these
 
-def interval_between(n1, n2):
+def interval_between(n1, n2, sort=False):
 	# don't really care about octaves
-	root, other = sorted([n1, n2], key=lambda e: e.degree)
-	halfsteps = other.degree - root.degree
-	return get(halfsteps, key='halfsteps') 
+	if sort:
+		root, other = sorted([n1, n2], key=lambda e: e.rank)
+	else:
+		root, other = n1, n2 
+	
+	halfsteps = other.rank - root.rank
+	
+	return get(halfsteps % 12, key='halfsteps') 
 
 
 def augment_interval(i):

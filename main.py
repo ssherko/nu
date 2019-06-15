@@ -27,15 +27,24 @@ from chords.store import (
 from chords.ops import build_voicing
 
 
-# c0 = get_note('C', octave=0)
-# e0 = get_note('E', octave=0)
-# g0 = get_note('G', octave=0)
+ionian = get_mode('ionian')
+c_maj_scale = get_scale_from_mode(ionian, root='C')
+print(c_maj_scale.describe())
 
+I = build_voicing(
+	[
+		c_maj_scale.notes[0],
+		c_maj_scale.notes[2],
+		c_maj_scale.notes[4]
+	]
+)
 
-# test_maj = build_voicing([c0, e0, g0])
-# print(test_maj)
-# test_min = build_voicing([c0, flatten(e0), g0])
-# print(test_min)
+II = build_voicing(
+	[
+		c_maj_scale.notes[1],
+		c_maj_scale.notes[3],
+		c_maj_scale.notes[5]
+	]
+) 
 
-a = flatten(get_note('A'))
-print(a.describe())
+print(II)

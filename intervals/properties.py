@@ -38,7 +38,7 @@ __interval_properties = [
 	# why can't you be normal? -------
 	{
 		'name': 'tritone',
-		'min-maj': '-',
+		'min-maj': 'T',
 		'alt': 'augmented fourth | diminished fifth',
 		'aug-dim': 'A4 | d5'
 	},

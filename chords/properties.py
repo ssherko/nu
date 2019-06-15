@@ -10,9 +10,20 @@ __chord_properties = {
 			# P1, m3, P5
 		},
 		'diminished': {
-			'intervals': ['perfect unison', 'minor third', 'diminished fifth'],
+			'intervals': ['perfect unison', 'minor third', 'tritone'],
 			# P1, m3, d5
+		},
+		'augmented': {
+			'intervals': ['perfect unison', 'major third', 'minor sixth']
 		}
+	},
+	'four-note': {
+		'half-diminished': {
+			'intervals': ['perfect unison', 'minor third', 'tritone', 'minor seventh'],
+		},
+		'dominant': {
+			'intervals': ['perfect unison', 'major third', 'perfect fifth', 'minor seventh'],
+		},
 	}
 }
 

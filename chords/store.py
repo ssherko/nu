@@ -80,6 +80,10 @@ __chords_store = {
 	'triads': {
 		kind: Chord('triad', kind, props)
 		for kind, props in get_all(t='triads').items()
+	},
+	'four-note': {
+		kind: Chord('four-note', kind, props)
+		for kind, props in get_all(t='four-note').items()
 	}
 }
 

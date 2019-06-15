@@ -14,6 +14,7 @@ class Note:
 		self.name = properties.get('name')
 		self.alternative = properties.get('alt')
 		self.degree = properties.get('deg')
+		self.rank = ( octave * 12 ) + self.degree
 
 		self.octave = octave
 		octave_offset = octave - _reference_octave()

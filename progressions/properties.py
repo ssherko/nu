@@ -1,0 +1,3 @@
+__progression_properties = {
+	
+}
