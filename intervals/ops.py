@@ -9,7 +9,7 @@ def interval_between(n1, n2, sort=False):
 	else:
 		root, other = n1, n2 
 	
-	halfsteps = other.rank % 12 - root.rank % 12
+	halfsteps = other.rank - root.rank
 	
 	return get(halfsteps % 12, key='halfsteps') 
 

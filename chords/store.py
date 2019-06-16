@@ -43,18 +43,18 @@ class Chord:
 
 
 class Voicing:
-	def __init__(self, chord, root='C'):
+	def __init__(self, chord, root='C', octave=4):
 		self.chord = chord
 		self.root = root
-		notes = iterate_notes(start=root)
+		notes = iterate_notes(start=root, octave=octave)
 
 		self.notes = []
 
 		# root is always there
-		self.notes.append(get_note(root))
+		self.notes.append(get_note(root, octave=octave))
 		
 		for interval in self.chord.intervals:
-			note_iterator = iterate_notes(start=root)
+			note_iterator = iterate_notes(start=root, octave=octave)
 			
 			# advance iterator
 			accum = [ next(note_iterator) for _ in range(interval.halfsteps) ]

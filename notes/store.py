@@ -40,7 +40,7 @@ class Note:
 			self.name, 
 			self.alternative if self.alternative else '-',
 			self.octave,
-			self.degree + 1, # should start from 1
+			self.degree, 
 			self.pitch.describe()
 		)
 

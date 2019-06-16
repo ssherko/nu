@@ -23,15 +23,15 @@ class Mode:
 
 
 class Scale():
-	def __init__(self, mode, root='C'):
+	def __init__(self, mode, root='C', octave=4):
 		self.mode = mode
 		self.notes = []
 
 		# root is always there
-		self.notes.append(get_note(root))
+		self.notes.append(get_note(root, octave=octave))
 		
 		for interval_name in self.mode.interval_pattern:
-			note_iterator = iterate_notes(start=root)
+			note_iterator = iterate_notes(start=root, octave=4)
 			interval = get_interval(interval_name)
 			
 			# advance iterator
@@ -42,6 +42,7 @@ class Scale():
 
 			self.notes.append(accum[-1])
 
+	# TODO: wrong way to do it, to-be-fixed
 	def iterate_notes(self):
 		distinct = self.notes[:-1] # omit the octave
 		c = 0
