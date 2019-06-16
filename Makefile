@@ -1,6 +1,8 @@
 
+.PHONY:
 run:
 	@`which python` main.py
 
-play:
-	@timidity synth/out/I-IV-V_in_Cmaj.mid
+.PHONY:
+example:
+	@PYTHONPATH=. `which python` examples/interval.py

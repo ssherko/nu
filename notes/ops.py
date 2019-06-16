@@ -1,7 +1,7 @@
 from notes.store import iterate_notes
 
 def add_interval(n, i):
-	note_iterator = iterate_notes(start=n.name)
+	note_iterator = iterate_notes(start=n.name, octave=n.octave)
 
 	accum = [next(note_iterator) for _ in range(i.halfsteps)]
 	if not any(accum):
@@ -20,5 +20,4 @@ def flatten(n):
 		prev = curr
 
 def sharpen(n):
-	print(n.octave)
 	return next(iterate_notes(start=n.name, octave=n.octave))

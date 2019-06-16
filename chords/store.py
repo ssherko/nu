@@ -46,8 +46,9 @@ class Voicing:
 	def __init__(self, chord, root='C', octave=4):
 		self.chord = chord
 		self.root = root
+		self.inversion = 0
+		
 		notes = iterate_notes(start=root, octave=octave)
-
 		self.notes = []
 
 		# root is always there
@@ -74,9 +75,10 @@ class Voicing:
 		)
 
 	def __repr__(self):
-		return "Voicing (chord: {}, notes: {})".format(
+		return "Voicing (chord: {}, notes: {}, inversion: {})".format(
 			self.chord.kind,
-			self.notes
+			self.notes,
+			self.inversion
 		)
 
 __chords_store = {

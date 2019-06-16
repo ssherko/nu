@@ -8,6 +8,9 @@ from intervals.ops import interval_between
 from chords.store import Chord, Voicing
 from chords.properties import get_all as get_all_properties
 
+from notes.store import get as get_note
+
+
 def __identify_kind(t, intervals):
 	# Note: ignore 't' for now
 	i_names = set([ i.name for i in intervals ])
@@ -46,7 +49,16 @@ def build_voicing(notes, sort=False):
 	 return Voicing(chord, root=root.name)
 
 def invert(voicing, inversion=1):
-	pass
+	copy = Voicing(voicing.chord, root=voicing.root)
+
+	for _ in range(inversion):
+		root = copy.notes[0]
+		new_notes = copy.notes[1:]
+		root_octave = get_note(root.name, octave=root.octave + 1)
+		new_notes.append(root_octave)
+		copy.notes = new_notes
+		copy.inversion += 1
+	return copy
 
 def extend(chord, extensions):
 	pass
