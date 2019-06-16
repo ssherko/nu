@@ -4,9 +4,11 @@ def add_interval(n, i):
 	note_iterator = iterate_notes(start=n.name, octave=n.octave)
 
 	accum = [next(note_iterator) for _ in range(i.halfsteps)]
+	
+
 	if not any(accum):
 		return n
-
+	
 	return accum[-1]
 
 # TODO: flatten and sharpen have issues with octaves

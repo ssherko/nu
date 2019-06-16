@@ -32,7 +32,6 @@ m = init_midi(title=title)
 t = 0
 d = 2
 for ref, note in synthesized:
-	print(ref.describe(), note.describe())
 	add_note(m, ref, t, d)
 	add_note(m, note, t, d)
 	t += d
