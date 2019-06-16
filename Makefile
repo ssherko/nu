@@ -10,3 +10,4 @@ example:
 	@PYTHONPATH=. `which python` examples/cmaj_chord_inversions.py
 	@PYTHONPATH=. `which python` examples/mixed.py
 	@PYTHONPATH=. `which python` examples/I_IV_V_cmaj.py
+	@PYTHONPATH=. `which python` examples/7th_extensions.py

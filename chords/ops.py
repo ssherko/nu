@@ -21,7 +21,7 @@ def __identify_kind(t, intervals):
 
 	return '?'
 
-def build_voicing(notes, sort=False):
+def build_voicing(notes, sort=False, role=None, symbol=None):
 	 n = notes
 
 	 if sort:
@@ -46,7 +46,7 @@ def build_voicing(notes, sort=False):
 	 kind = __identify_kind(t, intervals)
 
 	 chord = Chord(t, kind, {'intervals': [i.name for i in intervals]})
-	 return Voicing(chord, root=root.name)
+	 return Voicing(chord, root=root.name, role=role, symbol=symbol)
 
 def invert(voicing, inversion=1):
 	copy = Voicing(voicing.chord, root=voicing.root)
@@ -60,5 +60,42 @@ def invert(voicing, inversion=1):
 		copy.inversion += 1
 	return copy
 
-def extend(chord, extensions):
-	pass
+def extend(voicing, extensions):
+	notes = voicing.notes
+
+	for extension in extensions:
+		notes.append(extension)
+
+	# not sure about the roles carrying over
+	return build_voicing(notes, role=voicing.role, symbol=voicing.symbol)
+	
+
+
+def from_scale(scale):
+	scale_iterator = scale.iterate_notes()
+	notes = [ next(scale_iterator) for _ in range(24) ]
+
+	role_mapping = [
+		'tonic', 
+		'supertonic',
+		'mediant',
+		'subdominant',
+		'dominant',
+		'submediant',
+		'leading'
+	]
+
+	voicings = []
+	for i in range(7):
+		voicing = build_voicing(
+			[
+				notes[i],
+				notes[i+2],
+				notes[i+4]
+			],
+			role=role_mapping[i]
+		)
+		voicings.append(voicing)
+
+	return voicings
+

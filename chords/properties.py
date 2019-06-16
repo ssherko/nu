@@ -33,9 +33,14 @@ __chord_properties = {
 		'dominant': {
 			'intervals': ['perfect unison', 'major third', 'perfect fifth', 'minor seventh'],
 		},
+		'major seventh': {
+			'intervals': ['perfect unison', 'major third', 'perfect fifth', '']
+		},
+		'minor seventh': {
+			'intervals': ['perfect unison', 'minor third', 'perfect fifth', '']
+		}
 	}
 }
-
 
 def get(key, t='triads'):
 	return __chord_properties.get(t,{}).get(key)

@@ -42,12 +42,14 @@ class Scale():
 
 			self.notes.append(accum[-1])
 
-	# TODO: wrong way to do it, to-be-fixed
 	def iterate_notes(self):
 		distinct = self.notes[:-1] # omit the octave
 		c = 0
+		o = 0
 		while True:
-			yield distinct[c % len(distinct)]
+			to_yield = distinct[c % len(distinct)]
+			o = max(to_yield.octave, o)
+			yield get_note(to_yield.name, octave=o)
 			c += 1
 
 	def describe(self):

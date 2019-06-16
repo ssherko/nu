@@ -17,9 +17,6 @@ class Chord:
 		self.type = t
 		self.kind = kind
 		
-		# at this point, is unkown
-		self.degree = 0
-
 		intervals = props.get('intervals')
 		self.intervals = [
 			_get_interval(name) for name in intervals
@@ -43,11 +40,14 @@ class Chord:
 
 
 class Voicing:
-	def __init__(self, chord, root='C', octave=4):
+	def __init__(self, chord, root='C', octave=4, role=None, symbol=None):
 		self.chord = chord
 		self.root = root
 		self.inversion = 0
 		
+		self.role = role
+		self.symbol = symbol
+
 		notes = iterate_notes(start=root, octave=octave)
 		self.notes = []
 
@@ -75,10 +75,12 @@ class Voicing:
 		)
 
 	def __repr__(self):
-		return "Voicing (chord: {}, notes: {}, inversion: {})".format(
+		return "Voicing (chord: {}, notes: {}, inversion: {}, sym: {}, role: {})".format(
 			self.chord.kind,
 			self.notes,
-			self.inversion
+			self.inversion,
+			self.symbol,
+			self.role
 		)
 
 __chords_store = {
