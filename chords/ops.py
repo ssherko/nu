@@ -35,7 +35,7 @@ def build_voicing(notes, sort=False):
 	 
 	 t = 'single'
 	 if len(intervals) == 2: 
-	 	t = 'harmonic'
+	 	t = 'interval'
 	 if len(intervals) == 3:
 	 	t = 'triad'
 	 if len(intervals) == 4:

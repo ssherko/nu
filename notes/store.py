@@ -66,7 +66,7 @@ def iterate_notes(start='A', octave=0):
 	it = __note_iterator(get_all(), octave=octave)
 	
 	for note in it:
-		if note.name != start:
+		if note.name != start or note.octave != octave:
 			continue
 		break
 
@@ -76,7 +76,7 @@ def iterate_notes(start='A', octave=0):
 def get(name, octave=4):
 	it = __note_iterator(get_all(), octave=octave)
 	for note in it:
-		if note.name == name:
+		if note.name == name and note.octave==octave:
 			return note
 
 def get_sequence(start, end, start_octave=4):
