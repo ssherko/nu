@@ -46,7 +46,7 @@ def build_voicing(notes, sort=False, role=None, symbol=None):
 	 kind = __identify_kind(t, intervals)
 
 	 chord = Chord(t, kind, {'intervals': [i.name for i in intervals]})
-	 return Voicing(chord, root=root.name, role=role, symbol=symbol)
+	 return Voicing(chord, root=root.name, octave=root.octave, role=role, symbol=symbol)
 
 def invert(voicing, inversion=1):
 	copy = Voicing(voicing.chord, root=voicing.root)

@@ -1,11 +1,11 @@
 from chords.ops import build_voicing
 from notes.store import get as get_note
 
-o=2
+o=4
 
 C = get_note('C', octave=o)
 Eb = get_note('D#',octave=o)
-G = get_note('G',octave=o)
+G = get_note('G',octave=o-1)
 
 B = get_note('B',octave=o)
 D = get_note('D',octave=o)
