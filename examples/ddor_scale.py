@@ -13,15 +13,15 @@ from synth.utils import (
 )
 
 
-ionian = get_mode('ionian')
-c_maj_scale = get_scale_from_mode(ionian, root='C')
-print(c_maj_scale.describe())
+ionian = get_mode('dorian')
+cdorian = get_scale_from_mode(ionian, root='C')
+print(cdorian.describe())
 
-title = 'cmaj_scale'
+title = 'c_dorian_scale'
 m = init_midi()
 
 _ = add_scale(
-	m, synthesize_scale(c_maj_scale), spacing=1
+	m, synthesize_scale(cdorian), spacing=1 
 )
 
 persist(m, title)
